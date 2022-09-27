@@ -30,6 +30,9 @@ class VAE(nn.Module):
     def plot_score(self):
         pass
 
+    def visualize(self):
+        pass
+
 class Encoder(nn.Module):
     def __init__(self):
         pass
