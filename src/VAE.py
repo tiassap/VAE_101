@@ -14,11 +14,11 @@ class VAE(nn.Module):
     def load_data(self):
         pass
 
-    def encode(self):
-        pass
+    def encode(self, input_vector):
+        return self.encoder(input_vector)
 
-    def decode(self):
-        pass
+    def decode(self, latent_vector):
+        return self.decoder(latent_vector)
 
     def train(self):
         pass
@@ -40,6 +40,7 @@ class Encoder(nn.Module):
     def __init__(self, in_feature_dim, hidden_dim, latent_dim):
         super().__init__()
         encoder = None
+        self.initialize_weight()
     
     def reparametrization(self):
         pass
@@ -47,9 +48,17 @@ class Encoder(nn.Module):
     def forward(self):
         pass
 
-class Decoder(nn.Module):
-    def __init__(self):
+    def initialize_weight(self):
         pass
 
+class Decoder(nn.Module):
+    def __init__(self):
+        super().__init__()
+        decoder = None
+        self.initialize_weight()
+
     def forward(self):
+        pass
+
+    def initialize_weight(self):
         pass

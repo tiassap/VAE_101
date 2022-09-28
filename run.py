@@ -26,7 +26,7 @@ if __name__== "__main__":
 	model = VAE()
 
 	if args.train:
-		model.run_training()
+		model.train()
 	
 	else:
 		pass
