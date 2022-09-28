@@ -6,5 +6,5 @@ import torch.nn.functional as F
 def mlp_1():
     pass
 
-def conv_1():
+def deconv_1():
     pass
