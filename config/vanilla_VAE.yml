@@ -2,3 +2,6 @@ hyperparameters:
   learning_rate: 0.01
   batch_size: 32
   num_epoch: 50
+  in_feature_dim: 784
+  hidden_dim: 512
+  latent_dim: 2
