@@ -20,9 +20,11 @@ def get_logger(filename):
     logging.basicConfig(format='%(message)s', level=logging.DEBUG)
     handler = logging.FileHandler(filename)
     handler.setLevel(logging.DEBUG)
-    handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s: %(message)s'))
+    # handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s: %(message)s'))
+    handler.setFormatter(logging.Formatter('%(asctime)s | %(message)s'))
     logging.getLogger().addHandler(handler)
     return logger
+
 
 def get_data_loaders(data_root, batch_size,num_workers):
     '''
@@ -43,3 +45,25 @@ def get_data_loaders(data_root, batch_size,num_workers):
     )
     
     return train_loader
+
+def time_message(time_count):
+    hours = time_count//3600
+    minutes = (time_count%3600)//60
+    seconds = time_count%60
+    return int(hours), int(minutes), int(seconds)
+
+def export_plot(ys, ylabel, title, filename):
+    """
+    Export a plot in filename
+
+    Args:
+        ys: (list) of float / int to plot
+        filename: (string) directory
+    """
+    plt.figure()
+    plt.plot(range(len(ys)), ys)
+    plt.xlabel("Training epoch")
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.savefig(filename)
+    plt.close()

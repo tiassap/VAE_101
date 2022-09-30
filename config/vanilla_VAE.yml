@@ -1,7 +1,20 @@
+config_no: &no "01"
+name: &name "vanilla_VAE"
+
 hyperparameters:
-  learning_rate: 0.01
+  learning_rate: 0.0001
   batch_size: 32
   num_epoch: 50
   in_feature_dim: 784
   hidden_dim: 512
   latent_dim: 2
+
+output:
+  output_path: &output_path !join ["output/", *name, "-", *no]
+  encoder_model: !join [*output_path, "/encoder_model.weights.pt"]
+  decoder_model: !join [*output_path, "/decoder_model.weights.pt"]
+  scores_output: !join [*output_path, "/scores.npy"]
+  figure_output: !join [*output_path, "/output.png"]
+  log_path: !join [*output_path, "/log.txt"]
+  plot_output: !join [*output_path, "/scores.png"]
+  record_path: *output_path

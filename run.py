@@ -20,10 +20,13 @@ if __name__== "__main__":
 		config_file = open("config/{}.yml".format(args.config))
 		config = yaml.load(config_file, Loader=yaml.FullLoader)
 
-	if not os.path.exists(config["output"]["model_output"]):
-		os.makedirs(config["output"]["model_output"])
+	if not os.path.exists(config["output"]["output_path"]):
+		os.makedirs(config["output"]["output_path"])
+	
+	if not os.path.exists("./dataset"):
+		os.makedirs("./dataset")
 
-	model = VAE()
+	model = VAE(config)
 
 	if args.train:
 		model.train()
