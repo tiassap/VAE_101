@@ -138,7 +138,7 @@ class Encoder(nn.Module):
         return self.reparametrization(mean, log_var), mean, log_var
 
     def _init_weights(self, module):
-        pass
+        pass ## To be updated ##
 
 class Decoder(nn.Module):
     def __init__(self, in_feature_dim, hidden_dim, latent_dim):
@@ -155,4 +155,4 @@ class Decoder(nn.Module):
         return self.decoder(x)
 
     def _init_weights(self, module):
-        pass
+        pass ## To be updated ##

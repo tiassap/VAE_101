@@ -9,7 +9,7 @@ from src.VAE import VAE
 parser = argparse.ArgumentParser()
 parser.add_argument("--config", required=False, type=str)
 parser.add_argument("--train", action='store_true')
-parser.add_argument("--record", action='store_true')
+parser.add_argument("--plot", action='store_true')
 
 
 if __name__== "__main__":
@@ -20,16 +20,19 @@ if __name__== "__main__":
 		config_file = open("config/{}.yml".format(args.config))
 		config = yaml.load(config_file, Loader=yaml.FullLoader)
 
-	if not os.path.exists(config["output"]["output_path"]):
-		os.makedirs(config["output"]["output_path"])
-	
-	if not os.path.exists("./dataset"):
-		os.makedirs("./dataset")
+		if not os.path.exists(config["output"]["output_path"]):
+			os.makedirs(config["output"]["output_path"])
+		
+		if not os.path.exists("./dataset"):
+			os.makedirs("./dataset")
 
-	model = VAE(config)
+		model = VAE(config)
 
-	if args.train:
-		model.train()
+		if args.train:
+			model.train()
+
+		elif args.plot:
+			pass ## To be updated ##
 	
 	else:
-		pass
+		pass ## To be updated ##
